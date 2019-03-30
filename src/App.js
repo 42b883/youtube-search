@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import SearchBar from './components/search_bar.jsx';
+import YTSearch from 'youtube-api-search';
+const API_KEY = 'AIzaSyC9CHAxCZsf3HFEH2EOJgQQG54y40dYLjA';
+
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      videos: []
+    };
+    YTSearch ({ key:API_KEY, term: 'surfboards'}, (videos) => {
+      this.setState({
+        videos
+      }) 
+    })
+    
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <SearchBar />
       </div>
     );
   }
