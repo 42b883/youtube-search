@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './components/search_bar.jsx';
 import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list.jsx';
+// import VideoListItem from './components/video_list_item.jsx';
 const API_KEY = 'AIzaSyC9CHAxCZsf3HFEH2EOJgQQG54y40dYLjA';
 
 // import './App.css';
@@ -17,7 +18,7 @@ class App extends Component {
       this.setState({
         videos
       }) 
-    })
+    });
     
   }
   render() {
